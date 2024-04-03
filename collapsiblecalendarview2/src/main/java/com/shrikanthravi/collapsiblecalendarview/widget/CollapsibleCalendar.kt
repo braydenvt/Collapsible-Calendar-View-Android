@@ -380,6 +380,11 @@ class CollapsibleCalendar : UICalendar, View.OnClickListener {
         reload()
     }
 
+    fun clearEventTag() {
+        mAdapter!!.clearEvent()
+        reload()
+    }
+
     fun prevMonth() {
         val cal = mAdapter!!.calendar
         params.let {
