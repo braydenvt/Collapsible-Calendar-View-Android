@@ -384,6 +384,10 @@ class CollapsibleCalendar : UICalendar, View.OnClickListener {
         mAdapter!!.clearEvent()
         reload()
     }
+ 
+    fun isExpanded() : val {
+        return expanded
+    }
 
     fun prevMonth() {
         val cal = mAdapter!!.calendar
