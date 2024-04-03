@@ -54,6 +54,31 @@ class CalendarAdapter(context: Context, cal: Calendar) {
         mEventList.add(event)
     }
 
+    fun removeEvent(event: Event) {
+        /** For some reason Event(s) aren't comparable
+         *  therefore this monstrosity, but, hey, it works
+         */
+        var foundEvent : Event = Event(0,0,0)
+        var hasBeenFound : Boolean = false
+        for (ev in mEventList) {
+            if (ev.day == event.day && ev.month == event.month && ev.year == event.year) {
+                hasBeenFound = true
+                foundEvent = ev
+            }
+        }
+        if (hasBeenFound) {
+            mEventList.remove(foundEvent)
+        }
+    }
+
+    fun clearEvent() {
+        mEventList.clear()
+    }
+
+    fun getEvents() : ArrayList<Event> {
+        return mEventList;
+    }
+
     fun refresh() {
         // clear data
         mItemList.clear()
