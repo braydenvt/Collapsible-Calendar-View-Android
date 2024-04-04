@@ -554,6 +554,7 @@ class CollapsibleCalendar : UICalendar, View.OnClickListener {
         }
 
         expandIconView.setState(ExpandIconView.MORE, true)
+        mListener?.onStateChanged()
         reload()
     }
 
@@ -618,6 +619,7 @@ class CollapsibleCalendar : UICalendar, View.OnClickListener {
         }
 
         expandIconView.setState(ExpandIconView.LESS, true)
+        mListener?.onStateChanged()
         reload()
     }
 
@@ -665,6 +667,10 @@ class CollapsibleCalendar : UICalendar, View.OnClickListener {
         fun onClickListener()
 
         fun onDayChanged()
+
+        fun onStateChanged()
+
+        
     }
 
     fun setExpandIconVisible(visible: Boolean) {
